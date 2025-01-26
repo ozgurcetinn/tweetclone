@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <h3 class="card-title text-center mb-4">Create a Tweet</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <!--<div class="mb-4">
+                    <label for="nickname" class="form-label">Nickname</label>
+                    <input type="text" class="form-control form-control-lg" id="nickname" name="nickname" required placeholder="Enter your nickname">
+                </div> -->
+                <div class="mb-4">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control form-control-lg" id="message" name="message" rows="4" required placeholder="What's on your mind?"></textarea>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Send Tweet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

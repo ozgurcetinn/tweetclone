@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Add styles directly here -->
+<style>
+    .tweet-box {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .tweet-box .card-body {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+</style>
+
+<div class="container" style="width : 50%;">
+    {% for tweet in tweets %}
+        <div class="tweet-box">
+            <div class="card-body">
+                <h5 class="card-title">{{ tweet.username }}</h5>
+                <p class="card-text">{{ tweet.message }}</p>
+            </div>
+            {% if tweet.username == user %}
+            <a href="{% url 'tweetapp:deletetweet' id=tweet.id %}" class="btn btn-danger">Delete</a>
+            {%endif%}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
